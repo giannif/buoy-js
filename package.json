@@ -1,0 +1,49 @@
+{
+  "name": "buoy-js",
+  "version": "0.0.1",
+  "description": "Parse data from noaa.gov services. Buoy data and tide data.",
+  "keywords":"buoy noaa tides currents ndbc",
+  "author" : { 
+    "name" : "Gianni Ferullo", 
+    "email" : "giannif@gmail.com",
+    "url" : "http://gianniferullo.com/"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:babel/register test/*.js -b -w -G",
+    "lint": "gulp lint"
+  },
+  "repository" : { 
+    "type" : "git", 
+    "url" : "https://github.com/giannif/buoy-js.git"
+  },
+  "main" : "dist/bundle.js",
+  "dependencies": {
+    "lodash": "^3.9.3",
+    "geolib": "^2.0.14"
+  },
+  "devDependencies": {
+    "babel": "^5.4.7",
+    "babel-eslint": "^3.1.9",
+    "babelify": "^6.1.2",
+    "browser-sync": "^2.7.6",
+    "browserify": "^10.2.3",
+    "chai": "^2.3.0",
+    "eslint-friendly-formatter": "^1.0.8",
+    "event-stream": "^3.3.1",
+    "growl": "^1.8.1",
+    "gulp": "^3.8.11",
+    "gulp-buffer": "0.0.2",
+    "gulp-eslint": "^0.12.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.3",
+    "gulp-replace-task": "^0.2.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.5",
+    "mocha": "^2.2.5",
+    "request": "^2.56.0",
+    "rimraf": "^2.3.4",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.1"
+  }
+}

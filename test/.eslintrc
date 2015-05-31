@@ -1,0 +1,15 @@
+{
+	"parser": "babel-eslint",
+	"env": {
+		"mocha": true
+	},
+	"rules": {
+		"strict": 0,
+		"semi":0,
+		"no-multi-spaces": 0,
+		"semi-spacing": 0,
+		"no-irregular-whitespace ": 0,
+		"no-mixed-spaces-and-tabs": 0,
+		"quotes": 0
+	}
+}

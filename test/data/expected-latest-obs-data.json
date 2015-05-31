@@ -1,0 +1,40 @@
+{
+    "13001": {
+        "stationID": "13001",
+        "date": "Tue Apr 07 2015 08:15:30 GMT-0700 (PDT)",
+        "label": "NE Extension",
+        "latitude": 11.52,
+        "longitude": -22.98,
+        "windDirection": 30,
+        "windDirectionCompass":"NNE",
+        "windSpeed": 6.7,
+        "pressure": 1012.9,
+        "airTemp": 22.3,
+        "waterTemp": 23.5
+    },
+    "13002": {
+        "stationID": "13002",
+        "date": "Tue Apr 07 2015 09:30:30 GMT-0700 (PDT)",
+        "label": "NE Extension",
+        "latitude": 20.45,
+        "longitude": -23.09,
+        "windDirection": 10,
+        "dominantPeriodWaveDirection": 280,
+        "dominantPeriodWaveDirectionCompass":"W",
+        "windDirectionCompass":"N",
+        "windSpeed": 6.2,
+        "airTemp": 19.8
+    },
+    "13008": {
+        "stationID": "13008",
+        "date": "Tue Apr 07 2015 10:45:30 GMT-0700 (PDT)",
+        "latitude": 14.99,
+        "longitude": -38.01,
+        "windDirection": 70,
+        "windDirectionCompass":"ENE",
+        "windSpeed": 8.2,
+        "pressure": 1016.9,
+        "airTemp": 22.3,
+        "waterTemp": 24.4
+    }
+}
