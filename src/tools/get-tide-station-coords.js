@@ -1,7 +1,7 @@
 /**
+ * DEPRECATED
  * I didn't need need this since I copied the website data.
  */
-/*eslint-disable no-console */
 import stations from "./all-tide-stations";
 import _ from "lodash";
 import fs from "fs";
@@ -10,14 +10,12 @@ let missingData = [],
 	numberOfStations = stations.stations.length;
 console.log("stations to process:", numberOfStations);
 let done = _.after(numberOfStations, function() {
-	let data = JSON.stringify(stations, null, 2);
-	fs.writeFileSync("./js-tools/all-tide-stations.json", data);
+	fs.writeFileSync("./js-tools/all-tide-stations.json", JSON.stringify(stations, null, 2));
 	console.log("Missing:", missingData.length);
 	stations.stations = _.filter(stations.stations, function(station) {
 		return !_.isUndefined(station.latitude)
 	});
-	data = JSON.stringify(stations, null, 2);
-	fs.writeFileSync("./src/filtered-tide-stations.json", data);
+	fs.writeFileSync("./src/filtered-tide-stations.json", JSON.stringify(stations, null, 2));
 });
 
 function loadStation(station) {

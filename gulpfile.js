@@ -13,17 +13,13 @@ var gulp = require("gulp"),
 	reload = browserSync.reload,
 	config = {
 		entryFile: "./src/main.js",
+		srcFiles: "src/**/*.js",
 		outputDir: "./dist/",
-		outputFile: "bundle.js"
+		outputFile: "buoy.js"
 	};
 gulp.task("lint", function() {
-	gulp.src(["src/**/**", "!*src/**/*.json"])
-		.pipe($.eslint({
-			rules: {
-				"strict": 0
-			},
-			envs: ["browser"]
-		}))
+	gulp.src(config.srcFiles)
+		.pipe($.eslint())
 		.pipe($.eslint.format("./node_modules/eslint-friendly-formatter", process.stderr));
 });
 gulp.task("clean", function() {
@@ -35,7 +31,7 @@ gulp.task("build", ["clean"], function() {
 gulp.task("default", ["build"], function() {
 	process.exit(0);
 });
-gulp.task("release", ["build", "compress"], function() {
+gulp.task("release", ["lint", "build", "compress"], function() {
 	process.exit(0);
 });
 gulp.task('compress', ["build"], function() {

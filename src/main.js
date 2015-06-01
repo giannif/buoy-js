@@ -6,6 +6,8 @@ import getNOAADate from "./util/get-noaa-date";
 import buoyData from "./data/buoys.json"
 export default {
 	build: "@@compiled",
+	Tide: Tide,
+	buoys: buoyData,
 	parseLatestObservationData: parseLatestObservationData,
 	parseBuoy: parseBuoy,
 	getStations(){

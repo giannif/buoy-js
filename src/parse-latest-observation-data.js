@@ -85,4 +85,4 @@ export default function(list) {
 	} else {
 		throw "Invalid data for parse-data.js";
 	}
-};
+}

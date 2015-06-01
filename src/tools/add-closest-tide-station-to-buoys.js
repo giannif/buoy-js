@@ -13,6 +13,7 @@ request("http://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt", function(err,
 		let buoys = parseData(data.body);
 		console.log("check ", _.keys(buoys).length, "buoys");
 		_.each(buoys, function(buoy) {
+			// Tide stations are referenced from getClosestTideStation
 			let closestStation = getClosestTideStation(buoy.latitude, buoy.longitude);
 			if(closestStation.distance < MAX_DISTANCE){
 				console.log("\n\n>", buoy.stationID, "id:", closestStation.id, "dist", closestStation.distance);

@@ -2,21 +2,21 @@
   "name": "buoy-js",
   "version": "0.0.1",
   "description": "Parse data from noaa.gov services. Buoy data and tide data.",
-  "keywords":"buoy noaa tides currents ndbc",
-  "author" : { 
-    "name" : "Gianni Ferullo", 
-    "email" : "giannif@gmail.com",
-    "url" : "http://gianniferullo.com/"
+  "keywords": "buoy noaa tides currents ndbc",
+  "author": {
+    "name": "Gianni Ferullo",
+    "email": "giannif@gmail.com",
+    "url": "http://gianniferullo.com/"
   },
   "scripts": {
     "test": "mocha --compilers js:babel/register test/*.js -b -w -G",
     "lint": "gulp lint"
   },
-  "repository" : { 
-    "type" : "git", 
-    "url" : "https://github.com/giannif/buoy-js.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giannif/buoy-js.git"
   },
-  "main" : "dist/bundle.js",
+  "main": "dist/bundle.js",
   "dependencies": {
     "lodash": "^3.9.3",
     "geolib": "^2.0.14"
@@ -41,7 +41,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "mocha": "^2.2.5",
-    "request": "^2.56.0",
+    "request": "^2.57.0",
     "rimraf": "^2.3.4",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
