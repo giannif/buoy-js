@@ -1,7 +1,12 @@
 import _ from "lodash";
 import toFeet from "./util/meters-to-feet";
+import getNOAADate from "./util/get-noaa-date";
 
 export default {
+	getURL(tideStationID, numberOfHours = 48){
+		var range = numberOfHours;
+		return `http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=${getNOAADate()}&range=${range}&station=${tideStationID}&product=predictions&datum=MLLW&units=metric&time_zone=gmt&application=ports_screen&format=csv`;
+	},
 	/**
 	 * return an array of {date, size}
 	 */

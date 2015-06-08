@@ -1,7 +1,8 @@
 import closestTideStation from "../src/util/closest-tide-station";
 import {expect} from "chai";
 import {TIDE_DATA} from "./data/tide";
-import Tide from "../src/parse-tide";
+import Tide from "../src/tide";
+import getNOAADate from "../src/util/get-noaa-date";
 
 describe("closest tide station", function() {
 	it("should exist", function() {
@@ -15,7 +16,7 @@ describe("closest tide station", function() {
 	});
 });
 
-describe("parse tide data", function() {
+describe("Tide.getCurrent Tide.getNextHighOrLow", function() {
 	it("should get the current tide", function() {
 		let testDate = new Date("2015-04-22 04:06 GMT+0000");
 		let result = Tide.getCurrent(Tide.parse(TIDE_DATA), testDate);
@@ -46,4 +47,11 @@ describe("parse tide data", function() {
 		expect(result).to.be.an("undefined");
 	});
 });
+
+describe("Tide.getURL", function() {
+	it("should get the correctly formatted url", function() {
+		expect(Tide.getURL("12345")).to.equal(`http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=${getNOAADate()}&range=48&station=12345&product=predictions&datum=MLLW&units=metric&time_zone=gmt&application=ports_screen&format=csv`)
+		expect(Tide.getURL("12345", 100)).to.equal(`http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=${getNOAADate()}&range=100&station=12345&product=predictions&datum=MLLW&units=metric&time_zone=gmt&application=ports_screen&format=csv`)
+	});
+})
 

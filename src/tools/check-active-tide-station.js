@@ -1,7 +1,7 @@
 /*eslint-disable no-console */
 import request from "request";
 import getNOAADate from "../util/get-noaa-date";
-import parseTide from "../parse-tide";
+import parseTide from "../tide";
 import {expect} from "chai";
 import {stations} from "../data/tide-stations";
 /**
