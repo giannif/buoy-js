@@ -1,7 +1,6 @@
 import parseLatestObservationData from "./parse-latest-observation-data";
-import parseBuoy from "./parse-buoy";
+import parseBuoy from "./parse-realtime-buoy-data";
 import Tide from "./parse-tide";
-import buoyTideStationMap from "./data/buoy-tide-station-map";
 import getNOAADate from "./util/get-noaa-date";
 import buoyData from "./data/buoys.json"
 export default {
@@ -10,19 +9,12 @@ export default {
 	buoys: buoyData,
 	parseLatestObservationData: parseLatestObservationData,
 	parseBuoy: parseBuoy,
-	getStations(){
-		return buoyData
-	},
 	getStationName(stationID){
 		return buoyData[stationID].name;
 	},
-	getTideURL(stationID, numberOfHours = 48){
-		var tideStation = buoyTideStationMap[stationID],
-			range = numberOfHours;
-		if(!tideStation){
-			return null;
-		}
-		return `http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=${getNOAADate()}&range=${range}&station=${tideStation.id}&product=predictions&datum=MLLW&units=metric&time_zone=gmt&application=ports_screen&format=csv`;
+	getTideURL(tideStationID, numberOfHours = 48){
+		var range = numberOfHours;
+		return `http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=${getNOAADate()}&range=${range}&station=${tideStationID}&product=predictions&datum=MLLW&units=metric&time_zone=gmt&application=ports_screen&format=csv`;
 	},
 	parseTideData(tideData){
 		return Tide.parse(tideData);

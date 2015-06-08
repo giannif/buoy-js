@@ -3,7 +3,7 @@ export const DATA = [{
         "waveHeightFeet": 3.3,
         "wavePeriod": 4,
         "averageWavePeriod": 4.5,
-        "date": "Tue Apr 29 2015 02:52:30 GMT-0700 (PDT)",
+        "date": "Wed, 29 Apr 2015 02:52:00 GMT",
         "windDirection": 30,
         "windDirectionCompass": "NNE",
         "windSpeed": 6.7,
@@ -12,13 +12,12 @@ export const DATA = [{
         "waterTemp": 15.1,
         "dominantPeriodWaveDirection": 278,
         "dominantPeriodWaveDirectionCompass": "W"
-    },
-    {
+    }, {
         "waveHeight": 1.0,
         "waveHeightFeet": 3,
         "wavePeriod": 17,
         "averageWavePeriod": 4.6,
-        "date": "Tue Apr 29 2015 02:52:30 GMT-0700 (PDT)",
+        "date": "Wed, 29 Apr 2015 01:52:00 GMT",
         "windDirection": 30,
         "windDirectionCompass": "NNE",
         "windSpeed": 6.7,

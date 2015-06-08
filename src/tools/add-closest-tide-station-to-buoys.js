@@ -1,6 +1,6 @@
 /*eslint-disable no-console */
 import parseData from "../parse-latest-observation-data.js";
-import getClosestTideStation from "../closest-tide-station.js";
+import getClosestTideStation from "../util/closest-tide-station.js";
 import fs from "fs";
 import request from "request";
 import buoyData from "../data/buoys"

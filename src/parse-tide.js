@@ -1,6 +1,5 @@
 import _ from "lodash";
 import toFeet from "./util/meters-to-feet";
-import {getLocalFromUTC} from "./util/date";
 
 export default {
 	/**
@@ -9,10 +8,10 @@ export default {
 	parse: function(rawData) {
 		return _.rest(rawData.split("\n")).map(function(row) {
 			var tide = row.split(","),
-				formattedTime = tide[0].replace(/-/g, "/");
+				// the date is UTC, append GMT+0000 to indicate that
+				formattedTime = tide[0].replace(/-/g, "/") + " GMT+0000";
 			return {
-				// convert UTC to local
-				date: getLocalFromUTC(new Date(formattedTime)).toUTCString(), // formattedTime in local
+				date: new Date(formattedTime),
 				tideSize: parseFloat(tide[1])
 			};
 		});
@@ -24,11 +23,10 @@ export default {
 		let matchDate = forDate || new Date(),
 			lastTide = {};
 		return _.find(data, function(tide) {
-			var itemDate = new Date(tide.date);
-			if(!itemDate){
+			if(!tide.date){
 				return false;
 			}
-			if (itemDate.getTime() > matchDate.getTime()) {
+			if (tide.date.getTime() > matchDate.getTime()) {
 				tide.isIncreasing = tide.tideSize > lastTide.tideSize;
 				tide.tideSizeFeet = toFeet(tide.tideSize);
 				return true;
@@ -66,7 +64,7 @@ export default {
 				}
 				if(result){
 					lastTide.isHighTide = isIncreasing;
-					lastTide.tideSizeFeet = toFeet(tide.tideSize);
+					lastTide.tideSizeFeet = toFeet(lastTide.tideSize);
 					return true;
 				}
 			}
