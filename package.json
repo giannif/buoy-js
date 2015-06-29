@@ -18,8 +18,8 @@
   },
   "main": "dist/bundle.js",
   "dependencies": {
-    "lodash": "^3.9.3",
-    "geolib": "^2.0.14"
+    "geolib": "^2.0.14",
+    "lodash": "^3.9.3"
   },
   "devDependencies": {
     "babel": "^5.4.7",
@@ -44,6 +44,7 @@
     "request": "^2.57.0",
     "rimraf": "^2.3.4",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.1"
+    "watchify": "^3.2.1",
+    "yargs": "^3.11.0"
   }
 }
