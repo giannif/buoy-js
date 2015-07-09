@@ -39,7 +39,6 @@ export default function(buoy, map, val, index) {
 			break;
 		case "waveHeight":
 			buoy[propName] = val;
-			buoy[propName + "Feet"] = parseInt(val * 30.28084) / 10;
 			break;
 		case "longitude":
 		case "latitude":

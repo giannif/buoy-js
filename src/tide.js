@@ -1,5 +1,4 @@
 import _ from "lodash";
-import toFeet from "./util/meters-to-feet";
 import getNOAADate from "./util/get-noaa-date";
 
 export default {
@@ -33,7 +32,6 @@ export default {
 			}
 			if (tide.date.getTime() > matchDate.getTime()) {
 				tide.isIncreasing = tide.tideSize > lastTide.tideSize;
-				tide.tideSizeFeet = toFeet(tide.tideSize);
 				return true;
 			}
 			if (tide.tide !== lastTide.tide) {
@@ -69,7 +67,6 @@ export default {
 				}
 				if(result){
 					lastTide.isHighTide = isIncreasing;
-					lastTide.tideSizeFeet = toFeet(lastTide.tideSize);
 					return true;
 				}
 			}

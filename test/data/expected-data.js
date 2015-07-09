@@ -1,6 +1,5 @@
 export const DATA = [{
         "waveHeight": 1.1,
-        "waveHeightFeet": 3.3,
         "wavePeriod": 4,
         "averageWavePeriod": 4.5,
         "date": "Wed, 29 Apr 2015 02:52:00 GMT",
@@ -14,7 +13,6 @@ export const DATA = [{
         "dominantPeriodWaveDirectionCompass": "W"
     }, {
         "waveHeight": 1.0,
-        "waveHeightFeet": 3,
         "wavePeriod": 17,
         "averageWavePeriod": 4.6,
         "date": "Wed, 29 Apr 2015 01:52:00 GMT",

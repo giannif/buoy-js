@@ -23,7 +23,6 @@ describe("Tide.getCurrent Tide.getNextHighOrLow", function() {
 		expect(result).to.be.an("object");
 		expect(result.tideSize).to.equal(1.209);
 		expect(result.isIncreasing).to.be.false;
-		expect(result.tideSizeFeet).to.equal(3.6);
 	});
 	it("should get the next low tide", function() {
 		let testDate = new Date("2015-04-22 00:00 GMT+0000");
@@ -31,7 +30,6 @@ describe("Tide.getCurrent Tide.getNextHighOrLow", function() {
 		expect(result).to.be.an("object");
 		expect(result.tideSize).to.equal(0.485);
 		expect(result.isHighTide).to.be.false;
-		expect(result.tideSizeFeet).to.equal(1.4);
 	});
 	it("should get the next high tide", function() {
 		let testDate = new Date("2015-04-22 01:36 GMT+0000");
