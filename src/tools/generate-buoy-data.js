@@ -45,6 +45,7 @@ request("http://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt", function(err,
 			// only include buoys that have wave height
 			if(!isNaN(buoy.waveHeight)){
 				var buoyResult = result[key] = _.defaults({
+					id: key,
 					longitude: buoy.longitude,
 					latitude: buoy.latitude,
 					abilities: _.intersection(_.keys(buoy), abilities)

@@ -28,10 +28,13 @@ gulp.task("clean", function() {
 gulp.task("build", ["clean"], function() {
 	return bundle();
 });
-gulp.task("default", ["build"], function() {
+gulp.task("copy", function() {
+	gulp.src("./src/data/buoys.json").pipe(gulp.dest("./dist/"))
+})
+gulp.task("default", ["build", "copy"], function() {
 	process.exit(0);
 });
-gulp.task("release", ["lint", "build", "compress"], function() {
+gulp.task("release", ["lint", "build", "copy", "compress"], function() {
 	process.exit(0);
 });
 gulp.task('compress', ["build"], function() {
