@@ -34,7 +34,7 @@ export default {
 				tide.isIncreasing = tide.tideSize > lastTide.tideSize;
 				return true;
 			}
-			if (tide.tide !== lastTide.tide) {
+			if (tide.tideSize !== lastTide.tideSize) {
 				lastTide = tide;
 			}
 		});
