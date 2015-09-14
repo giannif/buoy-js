@@ -22,8 +22,7 @@ describe("Tide.getCurrent Tide.getNextHighOrLow", function() {
 		let result = Tide.getCurrent(Tide.parse(TIDE_DATA), testDate);
 		expect(result).to.be.an("object");
 		expect(result.tideSize).to.equal(1.209);
-		expect(result.isIncreasing).to.be.true;
-	});
+		expect(result.isIncreasing).to.be.true; });
 	it("should get the next low tide", function() {
 		let testDate = new Date("2015-04-22 00:00 GMT+0000");
 		let result = Tide.getNextHighOrLow(Tide.parse(TIDE_DATA), testDate);

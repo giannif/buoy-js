@@ -1,6 +1,7 @@
 import _ from "lodash";
 import parseBuoyProperties from "./parse-buoy-properties"
 import parseLine from "./parse-line"
+export const PARSE_ERROR = "Invalid data for parse-data.js";
 /**
  * Data loaded from
  * http://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt
@@ -13,11 +14,7 @@ export default function(list) {
 		// get the prop names, and remove STN, which we're using as the ID
 		var propertyNames = _.rest(parseLine(_.first(list)));
 		// pop off the first two lines of text, they're descriptions, not buoy data
-		list = list.slice(2);
-		// remove the last one, if it's empty
-		if (_.isEmpty(_.last(list))) {
-			list.pop();
-		}
+		list = _.compact(list.slice(2));
 		var result = {};
 		_.each(list, function(row) {
 			var record = parseLine(row),
@@ -33,7 +30,7 @@ export default function(list) {
 			buoy.date.setMilliseconds(0)
 		});
 		return result;
-	} else {
-		throw "Invalid data for parse-data.js";
 	}
+	throw PARSE_ERROR;
 }
+

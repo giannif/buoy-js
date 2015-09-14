@@ -27,15 +27,15 @@ export default {
 		let matchDate = forDate || new Date(),
 			lastTide = {};
 		return _.find(data, function(tide) {
-			if(!tide.date){
-				return false;
-			}
-			if (tide.date.getTime() > matchDate.getTime()) {
-				tide.isIncreasing = tide.tideSize > lastTide.tideSize;
-				return true;
-			}
-			if (tide.tideSize !== lastTide.tideSize) {
-				lastTide = tide;
+			let date = tide.date
+			if(_.isDate(date) && _.isFinite(date.getTime())){
+				if (date.getTime() > matchDate.getTime()) {
+					tide.isIncreasing = tide.tideSize > lastTide.tideSize;
+					return true;
+				}
+				if (tide.tideSize !== lastTide.tideSize) {
+					lastTide = tide;
+				}
 			}
 		});
 	},
@@ -50,7 +50,7 @@ export default {
 			lastTide = {};
 		_.some(data, function(tide) {
 			var itemDate = new Date(tide.date);
-			if(!itemDate){
+			if(!_.isFinite(itemDate.getTime())){
 				return false;
 			}
 			if(foundCurrent){

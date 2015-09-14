@@ -1,6 +1,6 @@
 {
   "name": "buoy-js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Parse data from noaa.gov services. Buoy data and tide data.",
   "keywords": "buoy noaa tides currents ndbc",
   "author": {
@@ -10,6 +10,7 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel/register test/*.js -b -w -G",
+    "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha",
     "lint": "gulp lint"
   },
   "repository": {
@@ -22,13 +23,13 @@
     "lodash": "^3.10.1"
   },
   "devDependencies": {
-    "babel": "^5.8.21",
-    "babel-eslint": "^4.0.10",
-    "babelify": "^6.2.0",
-    "browser-sync": "^2.8.2",
-    "browserify": "^11.0.1",
+    "babel": "^5.8.23",
+    "babel-eslint": "^4.1.1",
+    "babelify": "^6.3.0",
+    "browser-sync": "^2.9.3",
+    "browserify": "^11.1.0",
     "chai": "^3.2.0",
-    "eslint-friendly-formatter": "^1.2.1",
+    "eslint-friendly-formatter": "^1.2.2",
     "event-stream": "^3.3.1",
     "growl": "^1.8.1",
     "gulp": "^3.9.0",
@@ -37,14 +38,15 @@
     "gulp-load-plugins": "^1.0.0-rc",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-replace-task": "^0.10.1",
-    "gulp-uglify": "^1.2.0",
+    "gulp-replace-task": "^0.11.0",
+    "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
-    "mocha": "^2.2.5",
+    "isparta": "^3.0.4",
+    "mocha": "^2.3.2",
     "request": "^2.61.0",
-    "rimraf": "^2.4.2",
+    "rimraf": "^2.4.3",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.3.1",
-    "yargs": "^3.21.0"
+    "watchify": "^3.4.0",
+    "yargs": "^3.25.0"
   }
 }

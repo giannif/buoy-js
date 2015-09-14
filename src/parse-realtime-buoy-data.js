@@ -1,6 +1,7 @@
 import _ from "lodash";
 import parseBuoyProperties from "./parse-buoy-properties"
 import parseLine from "./parse-line"
+export const PARSE_ERROR = "Invalid data for parse-realtime-buoy-data.js";
 /**
  * Data loaded from
  * http://www.ndbc.noaa.gov/data/realtime2/{stationID}.txt
@@ -14,11 +15,7 @@ export default function(list, numberOfRecords = 10) {
 		// get the prop names, and remove STN, which we're using as the ID
 		var map = parseLine(_.first(list));
 		// pop off the first two lines of text, they're descriptions, not buoy data
-		list = list.slice(2);
-		// remove the last one, if it's empty
-		if (_.isEmpty(_.last(list))) {
-			list.pop();
-		}
+		list = _.compact(list.slice(2));
 		return _.take(list, numberOfRecords).map(function(row) {
 			var values = parseLine(row),
 				buoy = {
@@ -33,6 +30,7 @@ export default function(list, numberOfRecords = 10) {
 			return buoy;
 		});
 	} else {
-		throw "Invalid data for parse-data.js";
+		/* istanbul ignore next */
+		throw PARSE_ERROR;
 	}
 }

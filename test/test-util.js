@@ -6,8 +6,23 @@ describe("degrees-to-direction", function() {
 	it("should exist", function() {
 		expect(degreesToDirection).to.be.a("function");
 	});
-	it("should work okay", function() {
+	it("should convert a number to direction value", function() {
 		expect(degreesToDirection(0)).to.equal("N");
+		expect(degreesToDirection(360)).to.equal("N");
+		expect(degreesToDirection(12)).to.equal("NNE");
+		expect(degreesToDirection(34)).to.equal("NE");
+		expect(degreesToDirection(60)).to.equal("ENE");
+		expect(degreesToDirection(90)).to.equal("E");
+		expect(degreesToDirection(120)).to.equal("ESE");
+		expect(degreesToDirection(130)).to.equal("SE");
+		expect(degreesToDirection(160)).to.equal("SSE");
+		expect(degreesToDirection(180)).to.equal("S");
+		expect(degreesToDirection(200)).to.equal("SSW");
+		expect(degreesToDirection(215)).to.equal("SW");
+		expect(degreesToDirection(240)).to.equal("WSW");
+		expect(degreesToDirection(260)).to.equal("W");
+		expect(degreesToDirection(290)).to.equal("WNW");
+		expect(degreesToDirection(310)).to.equal("NW");
 		expect(degreesToDirection(348.75)).to.equal("NNW");
 	});
 })
