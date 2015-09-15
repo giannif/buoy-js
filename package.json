@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Parse data from noaa.gov services. Buoy data and tide data.",
   "keywords": "buoy noaa tides currents ndbc",
+  "license": "MIT",
   "author": {
     "name": "Gianni Ferullo",
     "email": "giannif@gmail.com",
     "url": "http://gianniferullo.com/"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel/register test/*.js -b -w -G",
+    "test": "mocha --compilers js:babel/register test/*.js -b -G",
     "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha",
     "lint": "gulp lint"
   },
