@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/travis/giannif/buoy-js.svg?style=flat)](https://travis-ci.org/giannif/buoy-js)
+[![Coverage Status](https://coveralls.io/repos/giannif/buoy-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/giannif/buoy-js?branch=master)
+
 # buoy-js
 
 Parse data from http://www.ndbc.noaa.gov/ and http://tidesandcurrents.noaa.gov

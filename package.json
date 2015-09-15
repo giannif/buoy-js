@@ -12,6 +12,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel/register test/*.js -b -G",
     "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha",
+    "coveralls": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "gulp lint"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "browser-sync": "^2.9.3",
     "browserify": "^11.1.0",
     "chai": "^3.2.0",
+    "coveralls": "^2.11.4",
     "eslint-friendly-formatter": "^1.2.2",
     "event-stream": "^3.3.1",
     "growl": "^1.8.1",
