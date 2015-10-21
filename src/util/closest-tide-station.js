@@ -1,6 +1,6 @@
 import geolib from "geolib";
 import _ from "lodash";
-import {stations} from "../../src/data/tide-stations";
+import stations from "../../src/data/tide-stations";
 export default function(latitude, longitude) {
 	var shortest = Infinity,
 		result;

@@ -15,11 +15,11 @@ export default function(list) {
 		var propertyNames = _.rest(parseLine(_.first(list)));
 		// pop off the first two lines of text, they're descriptions, not buoy data
 		list = _.compact(list.slice(2));
-		var result = {};
+		var result = [];
 		_.each(list, function(row) {
 			var record = parseLine(row),
 				stationID = record.shift(),
-				buoy = result[stationID] = {
+				buoy = {
 					stationID: stationID,
 					date: new Date()
 				};
@@ -28,6 +28,7 @@ export default function(list) {
 			// so clear them
 			buoy.date.setSeconds(0)
 			buoy.date.setMilliseconds(0)
+			result.push(buoy)
 		});
 		return result;
 	}

@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-expressions*/
 import _ from "lodash";
 import parseData from "../src/parse-latest-observation-data";
+import {PARSE_ERROR} from "../src/parse-latest-observation-data";
 import {expect} from "chai";
 import {DATA} from "./data/buoy-latest-obs-data";
 import expected from "./data/expected-latest-obs-data";
@@ -10,7 +11,7 @@ describe("parse latest observation data", function() {
 	});
 	it("should parse data", function() {
 		var result = parseData(DATA);
-		expect(result).to.be.an("object")
+		expect(result).to.be.an("array")
 		expect(_.isEmpty(result)).to.be.false;
 		_.each(result, function(buoy) {
 			var expectedBuoy = expected[buoy.stationID]
@@ -19,6 +20,6 @@ describe("parse latest observation data", function() {
 		})
 		expect(function() {
 			parseData(12345)
-		}).to.throw(parseData.PARSE_ERROR)
+		}).to.throw(PARSE_ERROR)
 	});
 })

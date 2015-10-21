@@ -1,5 +1,6 @@
 import _ from "lodash";
 import parseData from "../src/parse-realtime-buoy-data";
+import {PARSE_ERROR} from "../src/parse-realtime-buoy-data";
 import {expect} from "chai";
 import {BUOY_DATA} from "./data/buoy-data";
 import {DATA} from "./data/expected-data";
@@ -18,6 +19,6 @@ describe("parse buoy station data", function() {
 		})
 		expect(function() {
 			parseData(12345)
-		}).to.throw(parseData.PARSE_ERROR)
+		}).to.throw(PARSE_ERROR)
 	});
 })

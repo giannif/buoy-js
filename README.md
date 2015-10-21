@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/giannif/buoy-js.svg?style=flat)](https://travis-ci.org/giannif/buoy-js)
+[![Build Status](https://img.shields.io/travis/giannif/buoy-js.svg)](https://travis-ci.org/giannif/buoy-js)
 [![Coverage Status](https://coveralls.io/repos/giannif/buoy-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/giannif/buoy-js?branch=master)
 
 # buoy-js
@@ -29,7 +29,3 @@ This returns a tide object, that can be passed to `Tide.getCurrent(tideObject, f
 To find the next high or low tide, use `Tide.getNextHighOrLow(tideObject, forDate)` 
 
 For both methods, the second argument is Date object, and the default value is now, if left unspecified.
-
-### Tools
-
-The `tools` dir contains some scripts that were used to generate the `dist/buoys.json`. The tools should probably be in a separate project.
