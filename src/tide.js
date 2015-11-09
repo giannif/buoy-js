@@ -1,13 +1,40 @@
 import _ from "lodash";
 import getNOAADate from "./util/get-noaa-date";
-
+let parseTideTableLine = function(rawData) {
+	if (_.isString(rawData)) {
+		let fields = _.compact(rawData.split("\t"))
+		// fields: Date, Day, Time, Ft, cm, High/Low
+		if (fields.length === 6) {
+			let date = new Date(fields[0] + " " + fields[2] + " GMT+0000")
+			if (_.isDate(date) && _.isFinite(date.getTime())) {
+				return {
+					date: date,
+					tideSize: parseInt(fields[4]) / 100,
+					isHighTide: fields[5].indexOf("H") !== -1
+				}
+			}
+		}
+	}
+}
 export default {
 	getURL(tideStationID, numberOfHours = 48){
 		var range = numberOfHours;
 		return `http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=${getNOAADate()}&range=${range}&station=${tideStationID}&product=predictions&datum=MLLW&units=metric&time_zone=gmt&application=ports_screen&format=csv`;
 	},
+	parseTideTableLine: parseTideTableLine,
 	/**
-	 * return an array of {date, size}
+	 * return an array of {date, tideSize, isHighTide}
+	 */
+	parseTideTable: function(rawData) {
+		if (_.isString(rawData)) {
+			let lines = rawData.split("\n")
+			return _.compact(_.map(lines, function(line) {
+				return parseTideTableLine(line)
+			}))
+		}
+	},
+	/**
+	 * return an array of {date, tideSize}
 	 */
 	parse: function(rawData) {
 		return _.rest(rawData.split("\n")).map(function(row) {

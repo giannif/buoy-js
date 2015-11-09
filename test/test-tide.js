@@ -3,6 +3,7 @@ import {expect} from "chai";
 import {TIDE_DATA} from "./data/tide";
 import Tide from "../src/tide";
 import getNOAADate from "../src/util/get-noaa-date";
+import fs from "fs"
 
 describe("closest tide station", function() {
 	it("should exist", function() {
@@ -48,6 +49,49 @@ describe("Tide.getCurrent Tide.getNextHighOrLow", function() {
 		expect(result).to.be.an("undefined");
 	});
 });
+
+describe("Parse tide table", function() {
+	let testFile = fs.readFileSync("./test/data/tide-annual.txt", {
+		encoding: "utf-8"
+	})
+	it("test file loaded", function() {
+		expect(testFile).to.be.a("string")
+	});
+	it("has the correct exports", function() {
+		expect(Tide.parseTideTable).to.be.a("function")
+		expect(Tide.parseTideTableLine).to.be.a("function")
+	});
+	it("parses high tide", function() {
+		let result = Tide.parseTideTableLine("2015/02/07	Thu	04:16 AM	4.7		143		H")
+		expect(result.date.toUTCString()).to.equal("Sat, 07 Feb 2015 04:16:00 GMT")
+		expect(result.isHighTide).to.be.true
+		expect(result.tideSize).to.equal(1.43)
+	});
+	it("parses low tide", function() {
+		let result = Tide.parseTideTableLine("2015/02/07	Thu	04:16 AM	4.7		143		L")
+		expect(result.date.toUTCString()).to.equal("Sat, 07 Feb 2015 04:16:00 GMT")
+		expect(result.isHighTide).to.be.false
+		expect(result.tideSize).to.equal(1.43)
+	});
+	it("parses all", function() {
+		let result = Tide.parseTideTable(testFile)
+		expect(result).to.be.an("array")
+		expect(result.length).to.equal(1411)
+		result.forEach(function(line) {
+			expect(line.date).to.be.a("date")
+			expect(line.isHighTide).to.be.a("boolean")
+			expect(line.tideSize).to.be.a("number")
+		})
+	});
+	it("returns nothing with bad data", function() {
+		let result = Tide.parseTideTableLine("Product Type: Annual Tide Prediction ")
+		expect(result).to.be.undefined
+	});
+	it("returns nothing with undefined data", function() {
+		let result = Tide.parseTideTableLine()
+		expect(result).to.be.undefined
+	});
+})
 
 describe("Tide.getURL", function() {
 	it("should get the correctly formatted url", function() {
