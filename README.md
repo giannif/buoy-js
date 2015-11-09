@@ -29,3 +29,8 @@ This returns a tide object, that can be passed to `Tide.getCurrent(tideObject, f
 To find the next high or low tide, use `Tide.getNextHighOrLow(tideObject, forDate)` 
 
 For both methods, the second argument is Date object, and the default value is now, if left unspecified.
+
+For parsing published Tide Table data, use `Tide.parseTideTable(rawData)`
+
+Tide Tables can be found on pages like:
+http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=8516881
