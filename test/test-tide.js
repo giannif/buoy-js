@@ -6,6 +6,7 @@ import getNOAADate from "../src/util/get-noaa-date";
 import fs from "fs"
 
 describe("closest tide station", function() {
+	this.timeout(60000);
 	it("should exist", function() {
 		expect(closestTideStation).to.be.a("function");
 	});
