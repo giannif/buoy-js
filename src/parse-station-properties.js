@@ -5,7 +5,7 @@ let nameMatch = /h1><p>(.*)<br/i,
 	coordsMatch = /\d{0,3}\.\d{0,3}(N|S) \d{0,3}.\d{0,3}(W|E)/i,
 	idMatch = /title>NDBC\/(.*)<\/title/i
 export const PARSE_ERROR = "Couldn't parse station data"
-export default function(stationData) {
+export default stationData => {
 	let foundID = idMatch.exec(stationData)
 	if (!foundID) {
 		throw PARSE_ERROR + " no id"

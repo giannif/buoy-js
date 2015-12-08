@@ -1,4 +1,4 @@
-export default function(degrees) {
+export default degrees => {
 	if (degrees >= 0 && degrees <= 11.25) {
 		return "N";
 	}
@@ -47,7 +47,5 @@ export default function(degrees) {
 	if (degrees > 303.75 && degrees <= 326.25) {
 		return "NW";
 	}
-	if (degrees > 326.25 && degrees <= 348.75) {
-		return "NNW";
-	}
+	return "NNW";
 }

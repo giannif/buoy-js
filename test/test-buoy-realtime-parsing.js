@@ -9,16 +9,22 @@ describe("parse buoy station data", function() {
 		expect(parseData).to.be.a("function");
 	});
 	it("should parse the buoy string into an array of buoy records", function() {
-		var actual = parseData(BUOY_DATA);
+		let actual = parseData(BUOY_DATA);
 		expect(actual).to.be.an("array")
 		expect(actual.length).to.equal(2)
 		_.each(actual, function(buoy, index) {
-			var expected = DATA[index];
+			let expected = DATA[index];
 			expect(buoy.date.toUTCString()).to.equal(expected.date)
 			expect(_.omit(buoy, "date")).to.deep.equal(_.omit(expected, "date"));
 		})
 		expect(function() {
 			parseData(12345)
 		}).to.throw(PARSE_ERROR)
+		
+	});
+	it("should get the specified number of records", function() {
+		let actual = parseData(BUOY_DATA, 1);
+		expect(actual).to.be.an("array")
+		expect(actual.length).to.equal(1)
 	});
 })

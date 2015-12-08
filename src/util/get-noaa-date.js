@@ -1,4 +1,4 @@
-export default function(date){
+export default date => {
    var d = date || new Date(),
       month = (d.getUTCMonth() + 1).toString(),
       day = d.getUTCDate().toString();

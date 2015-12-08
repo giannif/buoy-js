@@ -1,4 +1,5 @@
 export default {
+	STN: "stationID",
 	/**
 	 * Wind direction (the direction the wind is coming from in degrees clockwise from true N) during the same period used for WSPD. See Wind Averaging Methods
 	 */

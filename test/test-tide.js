@@ -44,6 +44,10 @@ describe("Tide.getCurrent Tide.getNextHighOrLow", function() {
 		expect(current.isIncreasing).to.be.true;
 		expect(result.isHighTide).to.be.true;
 	});
+	it("shouldn't crash with no date", function() {
+		Tide.getCurrent(Tide.parse(TIDE_DATA))
+		Tide.getNextHighOrLow(Tide.parse(TIDE_DATA));
+	})
 	it("should return undefined if the tide data doesn't have a high/low", function() {
 		let testDate = new Date("2015-04-22 05:00 GMT+0000");
 		let result = Tide.getNextHighOrLow(Tide.parse(TIDE_DATA), testDate);
@@ -88,8 +92,12 @@ describe("Parse tide table", function() {
 		let result = Tide.parseTideTableLine("Product Type: Annual Tide Prediction ")
 		expect(result).to.be.undefined
 	});
+	it("returns nothing with a bad date", function() {
+		let result = Tide.parseTideTableLine("BAD/BAD/BAD	Thu	04:16 AM	4.7		143		L")
+		expect(result).to.be.undefined
+	});
 	it("returns nothing with undefined data", function() {
-		let result = Tide.parseTideTableLine()
+		let result = Tide.parseTideTableLine(undefined)
 		expect(result).to.be.undefined
 	});
 })

@@ -1,11 +1,15 @@
-import _ from "lodash";
+import R from "ramda";
 import degreesToDirection from "./util/degrees-to-direction"
 import propMap from "./prop-map.js"
-export default function(buoy, map, val, index) {
+export default (buoy, map, val, index) => {
 	if (val === "MM") {
 		return;
 	}
-	var propName = map[index];
+	let propName = map[index];
+	if (propName === "STN") {
+		buoy.stationID = val
+		return
+	}
 	if (propMap[propName]) {
 		propName = propMap[propName];
 	} else {
@@ -45,9 +49,7 @@ export default function(buoy, map, val, index) {
 			buoy[propName] = parseFloat(val);
 			break;
 		default:
-			if(!_.isUndefined(val)){
-				buoy[propName] = val;
-			}
+			buoy[propName] = val;
 			break;
 	}
 }

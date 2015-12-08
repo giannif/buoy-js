@@ -1,10 +1,10 @@
 import geolib from "geolib";
-import _ from "lodash";
+import R from "ramda";
 import stations from "../../src/data/tide-stations";
-export default function(latitude, longitude) {
+export default (latitude, longitude) => {
 	var shortest = Infinity,
 		result;
-	_.each(stations, function(station) {
+	R.forEach(station => {
 		var distance = geolib.getDistance({
 			latitude,
 			longitude
@@ -15,9 +15,9 @@ export default function(latitude, longitude) {
 		if (distance < shortest) {
 			shortest = distance;
 			// we don't want to change the original data source.
-			result = _.clone(station);
+			result = R.clone(station);
 			result.distance = distance;
 		}
-	});
+	}, stations);
 	return result;
 }
