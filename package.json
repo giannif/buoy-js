@@ -13,7 +13,7 @@
     "test": "mocha --compilers js:babel-core/register test/*.js -b -G",
     "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha",
     "coveralls": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "lint": "gulp lint"
+    "lint": "eslint 'test/**/*.js' 'src/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,6 @@
     "growl": "^1.8.1",
     "gulp": "^3.9.0",
     "gulp-buffer": "0.0.2",
-    "gulp-eslint": "^1.0.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",

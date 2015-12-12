@@ -13,15 +13,9 @@ var gulp = require("gulp"),
 	reload = browserSync.reload,
 	config = {
 		entryFile: "./src/main.js",
-		srcFiles: "src/**/*.js",
 		outputDir: "./dist/",
 		outputFile: "buoy.js"
 	};
-gulp.task("lint", function() {
-	gulp.src(config.srcFiles)
-		.pipe($.eslint())
-		.pipe($.eslint.format("./node_modules/eslint-friendly-formatter", process.stderr));
-});
 gulp.task("clean", function() {
 	rimraf.sync(config.outputDir);
 });

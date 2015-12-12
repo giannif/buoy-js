@@ -1,4 +1,3 @@
-import R from "ramda";
 import degreesToDirection from "./util/degrees-to-direction"
 import propMap from "./prop-map.js"
 export default (buoy, map, val, index) => {

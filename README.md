@@ -5,6 +5,8 @@
 
 Parse data from http://www.ndbc.noaa.gov/ and http://tidesandcurrents.noaa.gov
 
+This project is used to parse data in [Buoy Buddy ![Buoy Buddy](bb.png)](http://appstore.com/buoybuddy), an iOS app showing wave and tide data.
+
 ### Buoy Data
 
 Buoy data can be loaded from the latest observation url:
@@ -24,9 +26,9 @@ http://tidesandcurrents.noaa.gov/api/
 
 And then passed to `Tide.parse(rawData)`
 
-This returns a tide object, that can be passed to `Tide.getCurrent(tideObject, forDate)` to return the current tide. 
+This returns a tide object, that can be passed to `Tide.getCurrent(tideObject, forDate)` to return the current tide.
 
-To find the next high or low tide, use `Tide.getNextHighOrLow(tideObject, forDate)` 
+To find the next high or low tide, use `Tide.getNextHighOrLow(tideObject, forDate)`
 
 For both methods, the second argument is Date object, and the default value is now, if left unspecified.
 

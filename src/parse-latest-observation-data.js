@@ -1,5 +1,4 @@
 import R from "ramda";
-import parseBuoyProperties from "./parse-buoy-properties"
 import parseBuoyRecords from "./parse-buoy-records"
 export const PARSE_ERROR = "Invalid data for parse-data.js";
 
