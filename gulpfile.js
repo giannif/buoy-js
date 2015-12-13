@@ -28,7 +28,7 @@ gulp.task("copy", function() {
 gulp.task("default", ["build", "copy"], function() {
 	process.exit(0);
 });
-gulp.task("release", ["lint", "build", "copy", "compress"], function() {
+gulp.task("release", ["build", "copy", "compress"], function() {
 	process.exit(0);
 });
 gulp.task('compress', ["build"], function() {
