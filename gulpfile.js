@@ -22,13 +22,10 @@ gulp.task("clean", function() {
 gulp.task("build", ["clean"], function() {
 	return bundle();
 });
-gulp.task("copy", function() {
-	gulp.src("./src/data/buoys.json").pipe(gulp.dest("./dist/"))
-})
-gulp.task("default", ["build", "copy"], function() {
+gulp.task("default", ["build"], function() {
 	process.exit(0);
 });
-gulp.task("release", ["build", "copy", "compress"], function() {
+gulp.task("release", ["build", "compress"], function() {
 	process.exit(0);
 });
 gulp.task('compress', ["build"], function() {
