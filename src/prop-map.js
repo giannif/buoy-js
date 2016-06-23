@@ -63,7 +63,7 @@ export default {
 	hh: "hour",
 	mm: "minute",
     OTMP: "oceanTemp",
-    COND: "conditions",
+    COND: "conductivity",
     SAL: "waterSalinity",
     "O2%": "dissolvedOxygen",
     "O2PPM": "oxygenPartsPerMil",
