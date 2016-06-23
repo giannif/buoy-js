@@ -7968,7 +7968,7 @@ var _tide2 = _interopRequireDefault(_tide);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-	build: "Thu Jun 23 2016 14:43:41 GMT-0400 (EDT)",
+	build: "Thu Jun 23 2016 15:54:27 GMT-0400 (EDT)",
 	Tide: _tide2.default,
 	Buoy: {
 		realTime: _parseRealtimeBuoyData2.default,

@@ -1,7 +1,10 @@
 [![Build Status](https://img.shields.io/travis/giannif/buoy-js.svg)](https://travis-ci.org/giannif/buoy-js)
 [![Coverage Status](https://coveralls.io/repos/giannif/buoy-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/giannif/buoy-js?branch=master)
 
-# buoy-js
+# buoyjs
+
+### Update: 1.3.7
+You can now use .ocean realtime2 data.
 
 Parse data from http://www.ndbc.noaa.gov/ and http://tidesandcurrents.noaa.gov
 
@@ -16,6 +19,9 @@ And then passed to `Buoy.lastestObservation(rawData)` to get an object of statio
 
 Or it can be loaded from:
 http://www.ndbc.noaa.gov/data/realtime2/{stationID}.txt
+
+OR
+http://www.ndbc.noaa.gov/data/realtime2/{stationID}.ocean
 
 And passed to `Buoy.realTime(rawData)` to get a single station an its history of conditions.
 
