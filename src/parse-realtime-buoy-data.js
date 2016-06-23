@@ -7,7 +7,7 @@ export const PARSE_ERROR = "Invalid data for parse-realtime-buoy-data.js";
  * No json was available
  * returns an {Array} of records of buoy data
  */
-export default (list, numberOfRecords = 10) => {
+export default (list, numberOfRecords = 49) => {
 	if (R.is(String, list)) {
 		return R.take(numberOfRecords, parseBuoyRecords(list))
 	}
