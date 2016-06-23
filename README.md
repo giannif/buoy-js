@@ -40,3 +40,20 @@ For parsing published Tide Table data, use `Tide.parseTideTable(rawData)`
 
 Tide Tables can be found on pages like:
 http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=8516881
+
+
+## Example
+Using Meteor:
+```sh
+import Buoy from 'buoyjs';
+
+let ndbcRootUrl = `http://www.ndbc.noaa.gov/data/realtime2/`;
+let stationId = 44941; // Gooses Reef
+
+HTTP.get(`${ndbcRootUrl}${stationId}.ocean`, (error, response) => {
+	let buoyData = Buoy.Buoy.realTime(response.content);
+	
+	console.log(buoyData);
+})
+
+```
