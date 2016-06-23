@@ -1,6 +1,6 @@
 {
 	"name": "buoyjs",
-	"version": "1.3.7",
+	"version": "1.3.8",
 	"description": "Parse data from noaa.gov services. Buoy data and tide data.",
 	"keywords": "buoy noaa tides currents ndbc",
 	"license": "MIT",
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/giannif/buoy-js.git"
+		"url": "https://github.com/maka-io/buoy-js.git"
 	},
 	"main": "dist/buoy.js",
 	"dependencies": {

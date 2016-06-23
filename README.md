@@ -3,12 +3,10 @@
 
 # buoyjs
 
-### Update: 1.3.7
+### Update: 1.3.8
 You can now use .ocean realtime2 data.
 
 Parse data from http://www.ndbc.noaa.gov/ and http://tidesandcurrents.noaa.gov
-
-This project is used to parse data in [Buoy Buddy ![Buoy Buddy](bb.png)](http://appstore.com/buoybuddy), an iOS app showing wave and tide data.
 
 ### Buoy Data
 
