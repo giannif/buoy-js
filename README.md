@@ -1,11 +1,12 @@
 [![Build Status](https://img.shields.io/travis/giannif/buoy-js.svg)](https://travis-ci.org/giannif/buoy-js)
 [![Coverage Status](https://coveralls.io/repos/giannif/buoy-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/giannif/buoy-js?branch=master)
 
-# buoy-js
+# buoyjs
+
+### Update: 1.3.8
+You can now use .ocean realtime2 data.
 
 Parse data from http://www.ndbc.noaa.gov/ and http://tidesandcurrents.noaa.gov
-
-This project is used to parse data in [Buoy Buddy ![Buoy Buddy](bb.png)](http://appstore.com/buoybuddy), an iOS app showing wave and tide data.
 
 ### Buoy Data
 
@@ -16,6 +17,9 @@ And then passed to `Buoy.lastestObservation(rawData)` to get an object of statio
 
 Or it can be loaded from:
 http://www.ndbc.noaa.gov/data/realtime2/{stationID}.txt
+
+OR
+http://www.ndbc.noaa.gov/data/realtime2/{stationID}.ocean
 
 And passed to `Buoy.realTime(rawData)` to get a single station an its history of conditions.
 
@@ -36,3 +40,20 @@ For parsing published Tide Table data, use `Tide.parseTideTable(rawData)`
 
 Tide Tables can be found on pages like:
 http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=8516881
+
+
+## Example
+Using Meteor:
+```sh
+import Buoy from 'buoyjs';
+
+let ndbcRootUrl = `http://www.ndbc.noaa.gov/data/realtime2/`;
+let stationId = 44941; // Gooses Reef
+
+HTTP.get(`${ndbcRootUrl}${stationId}.ocean`, (error, response) => {
+	let buoyData = Buoy.Buoy.realTime(response.content);
+	
+	console.log(buoyData);
+})
+
+```

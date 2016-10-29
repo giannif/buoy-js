@@ -61,5 +61,14 @@ export default {
 	MM: "month",
 	DD: "day",
 	hh: "hour",
-	mm: "minute"
-}
+	mm: "minute",
+    OTMP: "oceanTemp",
+    COND: "conductivity",
+    SAL: "waterSalinity",
+    "O2%": "dissolvedOxygen",
+    "O2PPM": "oxygenPartsPerMil",
+    CLCON: "chlorophyllConcentration",
+    TURB: "turbidity",
+    PH: "ph",
+    EH: "eh"
+};

@@ -1,13 +1,13 @@
-import degreesToDirection from "./util/degrees-to-direction"
-import propMap from "./prop-map.js"
+import degreesToDirection from "./util/degrees-to-direction";
+import propMap from "./prop-map.js";
 export default (buoy, map, val, index) => {
 	if (val === "MM") {
 		return;
 	}
 	let propName = map[index];
 	if (propName === "STN") {
-		buoy.stationID = val
-		return
+		buoy.stationID = val;
+		return;
 	}
 	if (propMap[propName]) {
 		propName = propMap[propName];
@@ -51,4 +51,4 @@ export default (buoy, map, val, index) => {
 			buoy[propName] = val;
 			break;
 	}
-}
+};
